@@ -2,6 +2,7 @@ var chalk = require('chalk');
 var toArray = function (a) { return Array.prototype.slice.call(a); };
 
 module.exports = function (options) {
+  options = options || {};
   return function logger (socket, next) {
     if (!socket.__onevent) {
       // as there is no way to get the event name from socket.ack
