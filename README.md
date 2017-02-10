@@ -12,6 +12,12 @@ npm i --save socket.io-koalogger
 
 var logger = require('socket.io-koalogger');
 
-io.use(logger());
+io.use(logger({
+  onRequest: function (id, details) {}, // optional
+  onResponse: function (id, details) {}, // optional
+}));
 ```
 
+## Limitations
+
+Currently it logs only Socket.io events with a defined callback. So, no logs while emitting and broadcasting.
